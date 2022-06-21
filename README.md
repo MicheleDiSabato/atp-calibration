@@ -1,9 +1,7 @@
 # atp-calibration
 
-<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
-
 ## Theoretical framework:
-The framework for this project is the following: the normal diffusion of the potential in the heart is hindered by a [re-entry](https://www.youtube.com/watch?v=yLI4yj1TZhc) of the signal, possibly caused by scar tissue in specific areas of the heart. This problem leads to some complications, which could be fatal. In order to restore the normal diffusion of the potential through the affectted region, an Anti-Tachycardia Pacing (ATP) device is inserted: its purpose is to deliver an impulse to avoid the re-entry. The role of the impulse is to reset the ECG and the device checks the effectiveess of the shock tracking the ECG in a certain time interval after the shock. This period is called *tracking window* and it lasts from 600 to 800 milliseconds.
+The framework for this project is the following: the normal diffusion of the potential in the heart is hindered by a [re-entry](https://www.youtube.com/watch?v=yLI4yj1TZhc) of the signal, possibly caused by scar tissue in specific areas of the heart. This problem leads to some complications, which could be fatal. In order to restore the normal diffusion of the potential through the affectted region, an Anti-Tachycardia Pacing (ATP) device is inserted: its purpose is to deliver an impulse at a specific time (from now on called *impulse time*) and with a specific duration (from now on called *impulse duration*) to avoid the re-entry. The role of the impulse is to reset the ECG and the device checks the effectiveess of the shock tracking the ECG in a certain time interval after the shock. This period is called *tracking window* and it lasts from 600 to 800 milliseconds. The impulse timing can be within 450 and 600 milliseconds and there is no bound a priori on the impulse duration.
 
 We are given 
 * three ECG signal observed for some milliseconds of three different patients;
@@ -32,6 +30,9 @@ Before working on the ATP device, we need to tune hyperparameter ν<sub>2</sub>.
 3. The variance of the Gaussian from which we sample ν<sub>2</sub> decreases according to the number of iterations.
 4. We used 20 iterations: for each iteration we need to compute the solution of the monodomain problem coupled with the model for the ionic current, which is quite costly.
 
+The following plot shows the results of the calibration:
+![nu](readme_images/nu.png)
+
 ## Calibration for (t<sup>best</sup>, Δt<sup>best</sup>)
 Calibrating t<sup></sup> and Δt<sup></sup> using [grid search](https://towardsdatascience.com/grid-search-for-model-tuning-3319b259367e) or even our own version of a Naive Random Search (which hwe called Adaptive Random Search) is too costly, since for each possible couple (t<sup></sup>, Δt<sup></sup>) we would need to solve the monodomain problem for each patient. 
 
@@ -53,7 +54,7 @@ We used two typed of loss function:
 1. $||\hat{u}||_{L^2(600, 800)ms} + \lambda \Delta t$
 2. $||\hat{u}||_{L^2(600, 800)ms} + \lambda (\Delta t)^2$
 
-[^1]: we want to reset the ECG, therefore we are dealing with a minimization task.
+[^1]: We want to reset the ECG, therefore we are dealing with a minimization task.
 
 where 
 * $u$ is the numerical ECG
@@ -71,9 +72,10 @@ We decided to use:
 | **t bound** | (0, 2) ms  | (0, 2) ms | (0, 8) ms
 
 **Remarks:**
-1. we needed to tread carefully with parameter $\lambda$: if we penalized excessively longer impulse durations, the overall loss function was not able to reset the ECG in the tracking window. This trade-off forced us to cope with higher impulse durations, especially for patient 3.
-1. we realized that it was not necessary to annihilate the ECG in the *whole* tracking window, hence we tried to restrict the $L^2$ norm of the ECG in a subset of the tracking window[^2].
-1. the third patient was the one which consistently resulted quindi invece che cercare un t tra 450 e 600 ne cerchiamo uno tra 509 e 513---> perche proprio questi valori? vedi il plot giallo e blu
+1. We needed to tread carefully with parameter $\lambda$: if we penalized excessively longer impulse durations, the overall loss function was not able to reset the ECG in the tracking window. This trade-off forced us to cope with higher impulse durations, especially for patient 3.
+1. We realized that it was not necessary to annihilate the ECG in the *whole* tracking window, hence we tried to restrict the $L^2$ norm of the ECG in a subset of the tracking window[^2].
+1. The calibration for the third patient was the one which consistently resulted in higher values for $\Delta t$, therefore we decided to focus on finding better values for the impulse duration, rather than exploring the space of possible impusle timings. We therefore restricted the bounds for the impulse timing of patient 3 from (450, 600)ms to (509, 513)ms. The choice for these values was motivated by the following plot:
+![sample_visualization](readme_images/patient_3_attempts.png)
 
 [^2]: Basically this means that, being the tracking window within 600 and 800 milliseconds, with this choice the ECG was not exaclty zero from 600 milliseconds on, but from, from example, 750 milliseconds. This is still condiered an effective impulse.
 
