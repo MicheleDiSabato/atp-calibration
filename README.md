@@ -50,8 +50,8 @@ The Bayesian Optimization algorithm is specifically designed to minimize the num
 
 ### Loss function:
 We used two typed of loss function:
-1. $||\hat{u}||_{L^2} + \lambda \Delta t$
-2. $||\hat{u}||_{L^2} + \lambda (\Delta t)^2$
+1. $||\hat{u}||_{L^2(600, 800)ms} + \lambda \Delta t$
+2. $||\hat{u}||_{L^2(600, 800)ms} + \lambda (\Delta t)^2$
 
 [^1]: we want to reset the ECG, therefore we are dealing with a minimization task.
 
@@ -60,16 +60,22 @@ where
 * $\Delta t$ is the ATP impulse duration
 * $\lambda$ is a term which quantifies the fact that higher values of $\Delta t$ should be avoided, since they undemine the device's battery.
 
+Moreove, we noticed that by restricting the bounds for $\Delta t$, we were still able to find optimal results. FOr this reason we restricted the bounds for $\Delta t$.
+
 We decided to use:
 
 | item | Patient 1 |  Patient 2 |  Patient 3 |
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-|**Loss** | $\|\|\hat{u}\|\|_{L^2}+(\Delta t)^2$ | $\|\|\hat{u}\|\|_{L^2}+(\Delta t)^2$ | $\|\|\hat{u}\|\|_{L^2}+0.001\Delta t$
-|**\lambda** | 1  | 1 | 0.001
+|**Loss** | $\|\|\hat{u}\|\|_{L^2(600, 800)ms}+(\Delta t)^2$ | $\|\|\hat{u}\|\|_{L^2(600, 800)ms}+(\Delta t)^2$ | $\|\|\hat{u}\|\|_{L^2(600, 800)ms}+0.001\Delta t$
+|**$\lambda$** | 1  | 1 | 0.001
+| **t bound** | (0, 2) ms  | (0, 2) ms | (0, 8) ms
 
+**Remarks:**
+1. we needed to tread carefully with parameter $\lambda$: if we penalized excessively longer impulse durations, the overall loss function was not able to reset the ECG in the tracking window. This trade-off forced us to cope with higher impulse durations, especially for patient 3.
+1. we realized that it was not necessary to annihilate the ECG in the *whole* tracking window, hence we tried to restrict the $L^2$ norm of the ECG in a subset of the tracking window[^2].
+1. the third patient was the one which consistently resulted quindi invece che cercare un t tra 450 e 600 ne cerchiamo uno tra 509 e 513---> perche proprio questi valori? vedi il plot giallo e blu
 
-
-
+[^2] Basically this means that, being the tracking window within 600 and 800 milliseconds, with this choice the ECG was not exaclty zero from 600 milliseconds on, but from, from example, 750 milliseconds. This is still condiered an effective impulse.
 
 
 
