@@ -64,7 +64,7 @@ We decided to use:
 
 | item | Patient 1 |  Patient 2 |  Patient 3 |
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-|**Loss** | $\vert\hat{u}||_{L^2}+(\Delta t)^2$ | $||\hat{u}||_{L^2}+(\Delta t)^2$ | $||\hat{u}||_{L^2}+0.001\Delta t$
+|**Loss** | $\rvert\hat{u}||_{L^2}+(\Delta t)^2$ | $||\hat{u}||_{L^2}+(\Delta t)^2$ | $||\hat{u}||_{L^2}+0.001\Delta t$
 |**\lambda** | 1  | 1 | 0.001
 
 
