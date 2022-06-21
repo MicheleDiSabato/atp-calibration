@@ -24,9 +24,9 @@ We quantify the effectiveness of pair (t<sup>best</sup>, Δt<sup>best</sup>) in 
 2. preserve the device's battery as long as possible by minimizing the duration of the impulse 
 
 ## Calibration for ν<sub>2</sub>:
-Before working on the ATP device, we need to tune hyperparameter $\nu_2$. 
+Before working on the ATP device, we need to tune hyperparameter $\nu_2$:
 $$\nu_2^{best} = argmin_{\nu_2} \|\|u(t) - u_{exact}(t)\|\|_{L^2(0, 450)ms}$$
-To do so we used a modifed version of a naive random search algorthm, which we call *Adaptive Random Search* (see page 2, Section 2.1 of our [report](report.pdf)).
+To do so we used a modifed version of a naive random search algorthm, which we called *Adaptive Random Search* (see page 2, Section 2.1 of our [report](report.pdf)).
 
 **Remarks:**
 1. The ECG provided are noisy: they were first denoised using a low-pass bandpass filter called [Butterworth filter](https://en.wikipedia.org/wiki/Butterworth_filter). The results are shown in the following plots:
