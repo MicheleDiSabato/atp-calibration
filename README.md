@@ -52,7 +52,7 @@ We used two typed of loss function:
 1. $||\hat{u}||_{L^2} + \lambda \Delta t$
 2. $||\hat{u}||_{L^2} + \lambda (\Delta t)^2$
 
-$\Delta t$ 
+$\Delta t$ is the
 
 where $\hat{u}$ is the numerical ECG, $\Delta$ is the ATP impulse duration and $\lambda$ is a term which quantifies the fact that higher values of $\Delta t$ should be avoided, since they undemine the device's battery.
 
