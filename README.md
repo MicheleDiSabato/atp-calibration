@@ -10,9 +10,9 @@ We are given
 ## Goals:
 We want to:
 * calibrate patient-specific parameter ν<sub>2</sub> for the Rogers-McCulloch model;
-* find the *best* values for the timing (t<sup>*</sup>) and duration (Δt<sup>*</sup>) of the impulse delivered by the ATP;  
+* find the *best* values for the timing (t<sup>best</sup>) and duration (Δt<sup>best</sup>) of the impulse delivered by the ATP;  
 
-We quantify the effectiveness of the pair (t<sup>\ast</sup>, Δt<sup>\ast</sup>) in terms of the ability of the resulting impuls to :
+We quantify the effectiveness of the pair (t<sup>best</sup>, Δt<sup>best</sup>) in terms of the ability of the resulting impuls to :
 1. annihilate the ECG in the tracking window 
 2. preserve the device's battery as long as possible by minimizing the duration of the impulse 
 
