@@ -30,11 +30,41 @@ Before working on the ATP device, we need to tune hyperparameter ν<sub>2</sub>.
 3. The variance of the Gaussian from which we sample ν<sub>2</sub> decreases according to the number of iterations.
 4. We used 20 iterations: for each iteration we need to compute the solution of the monodomain problem coupled with the model for the ionic current, which is quite costly.
 
+## Calibration for (t<sup>best</sup>, Δt<sup>best</sup>)
+Calibrating t<sup></sup> and Δt<sup></sup> using [grid search](https://towardsdatascience.com/grid-search-for-model-tuning-3319b259367e) or event our own version of a Naive Radom Search (which hwe called Adaptive Random Search) is too costly, since for each possible couple (t<sup></sup>, Δt<sup></sup>) we would need to solve the monodomain problem for each patient. 
 
-## Calibration for t and delta_t
-relazione tra delta t e norma L2 della loss 
+To avoid wasting time in useless evaluations, we relied on [Bayesian Otimization](https://arxiv.org/abs/1807.02811), in particular on [this](https://github.com/fmfn/BayesianOptimization) opensource python library, which needs to be installed to run the code contained in this repository:
 
-+ risultati 
-+ grafici
+```
+pip install bayesian-optimization
+```
 
-# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
