@@ -1,4 +1,9 @@
-# Calibration of the monodomain model coupled with the Rogers-McCulloch model for the ionic current: ATP impulse delivery protocol design.
+# Authors:
+* [Federica Botta](https://www.linkedin.com/in/federica-botta-8629391b3/)
+* [Simone Colombara](https://www.linkedin.com/in/simone-colombara-a4a430167/)
+* [Michele Di Sabato](https://www.linkedin.com/in/michele-di-sabato/)
+
+# Calibration of the monodomain model coupled with the Rogers-McCulloch model for the ionic current: design of a protocol for impulse delivery from an ATP device.
 
 **Before running the code contained in this repository, please have a look at [WARNING.md](WARNING.md).**
 
@@ -92,4 +97,7 @@ The following plots showcase the ability of our impulse delivery protocol to res
 *Patient 3* | ![annihilation_1](readme_images/patient_3_ATP_time_511.579_ATP_dur_5.038.png) 
 
 
-
+# Authors:
+* [Federica Botta](https://www.linkedin.com/in/federica-botta-8629391b3/)
+* [Simone Colombara](https://www.linkedin.com/in/simone-colombara-a4a430167/)
+* [Michele Di Sabato](https://www.linkedin.com/in/michele-di-sabato/)
