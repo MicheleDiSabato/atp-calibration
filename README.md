@@ -41,17 +41,13 @@ To do so we used a modifed version of a naive random search algorthm, which we c
 
 The following plots show the results of the calibration:
 
+![p3](readme_images/patient_3_noise.png)
+
 | Patient Number |  $\nu_2$ | MSE | $u_{exact}$ in orange vs $\hat{u}(\nu_2^{best})$ in blue |
 :----------:|:-----------:|:--------:|:---------------------------------------------------------:
 *Patient 1* | 0.012113108 | 0.020216 | ![p1](readme_images/patient_1_noise.png) 
 *Patient 2* | 0.011852261 | 0.019144 | ![p2](readme_images/patient_2_noise.png)
 *Patient 3* | 0.011748969 | 0.021651 | ![p3](readme_images/patient_3_noise.png)
-
-| Patient Number |  $u_{exact}$ in orange vs $\hat{u}(\nu_2^{best})$ in blue |
-:----------:|:---------------------------------------------------------:
-*Patient 1* |![p1](readme_images/patient_1_noise.png) 
-*Patient 2* | ![p2](readme_images/patient_2_noise.png)
-*Patient 3* |![p3](readme_images/patient_3_noise.png)
 
 In particular, this plot showcases the exploration for paramete $\nu_2$:
 
