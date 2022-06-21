@@ -90,10 +90,10 @@ We decided to use:
 ## ECG reset:
 The following plots showcase the ability of our impulse delivery protocol to reset the ECG in the tracking widow for all three patients:
 
-| Patient Number | Numerical ECG |
-:-----------|:---------:
-*Patient 1* | ![annihilation_1](readme_images/patient_1_ATP_time_484.707_ATP_dur_2.697.png)
-*Patient 2* | ![annihilation_1](readme_images/patient_2_ATP_time_501.435_ATP_dur_2.804.png)
-*Patient 3* | ![annihilation_1](readme_images/patient_3_ATP_time_511.579_ATP_dur_5.038.png) 
+| Patient Number | Impulse delivery timing | Impulse duration |Numerical ECG |
+:-----------|:---------:|:---------:|:---------:
+*Patient 1* | 484.707 ms | 2.697 ms | ![annihilation_1](readme_images/patient_1_ATP_time_484.707_ATP_dur_2.697.png)
+*Patient 2* | 501.435 ms | 2.804 ms | ![annihilation_1](readme_images/patient_2_ATP_time_501.435_ATP_dur_2.804.png)
+*Patient 3* | 511.579 ms | 5.038 ms | ![annihilation_1](readme_images/patient_3_ATP_time_511.579_ATP_dur_5.038.png) 
 
 
