@@ -1,4 +1,4 @@
-# Authors:
+### Contributors:
 * [Federica Botta](https://www.linkedin.com/in/federica-botta-8629391b3/)
 * [Simone Colombara](https://www.linkedin.com/in/simone-colombara-a4a430167/)
 * [Michele Di Sabato](https://www.linkedin.com/in/michele-di-sabato/)
@@ -96,8 +96,7 @@ The following plots showcase the ability of our impulse delivery protocol to res
 *Patient 2* | ![annihilation_1](readme_images/patient_2_ATP_time_501.435_ATP_dur_2.804.png)
 *Patient 3* | ![annihilation_1](readme_images/patient_3_ATP_time_511.579_ATP_dur_5.038.png) 
 
-
-# Authors:
+### Authors:
 * [Federica Botta](https://www.linkedin.com/in/federica-botta-8629391b3/)
 * [Simone Colombara](https://www.linkedin.com/in/simone-colombara-a4a430167/)
 * [Michele Di Sabato](https://www.linkedin.com/in/michele-di-sabato/)
