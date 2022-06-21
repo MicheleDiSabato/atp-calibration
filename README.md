@@ -12,16 +12,15 @@ We want to:
 * calibrate patient-specific parameter ν<sub>2</sub> for the Rogers-McCulloch model;
 * find the *best* values for the timing (t<sup>best</sup>) and duration (Δt<sup>best</sup>) of the impulse delivered by the ATP;  
 
-We quantify the effectiveness of the pair (t<sup>best</sup>, Δt<sup>best</sup>) in terms of the ability of the resulting impuls to :
+We quantify the effectiveness of pair (t<sup></sup>, Δt<sup></sup>) in terms of the ability of the resulting impulse to:
 1. annihilate the ECG in the tracking window 
 2. preserve the device's battery as long as possible by minimizing the duration of the impulse 
 
-
 ## Calibration for ν<sub>2</sub>:
+Before working on the ATP device, we need to tune hyperparameter ν<sub>2</sub>. To do so we used a modifed version of a naive random search algorthm, which we call *Adaptive Random Search* (see page 2, Section 2.1 of our [report](report.pdf)).
 
-+ risultati
-+ grafici
-
+**Remarks:**
+1. the ECG provided are noisy: they were first denoised using a low-pass bandpass filter called [Butterworth filter](https://en.wikipedia.org/wiki/Butterworth_filter). 
 ## Calibration for t and delta_t
 relazione tra delta t e norma L2 della loss 
 
