@@ -23,7 +23,7 @@ Before working on the ATP device, we need to tune hyperparameter ν<sub>2</sub>.
 1. The ECG provided are noisy: they were first denoised using a low-pass bandpass filter called [Butterworth filter](https://en.wikipedia.org/wiki/Butterworth_filter). The results are shown in the following plots:
 | Patient 1 |  Patient 2 |  Patient 3 |
 :-------------------------:|:-------------------------:|:-------------------------:
-![](readme_images/patient_1_noise.png)  | ![](readme_images/patient_2_noise.png) | ![](readme_images/patient_3_noise.png)
+[](readme_images/patient_1_noise.png)  | [](readme_images/patient_2_noise.png) | [](readme_images/patient_3_noise.png)
 
 2. For each iteration, the sampling of ν<sub>2</sub> is repeated until it falls within its bounds.
 3. The variance of the Gaussian from which we sample ν<sub>2</sub> decreases according to the number of iterations.
