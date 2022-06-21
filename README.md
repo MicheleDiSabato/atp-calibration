@@ -1,11 +1,11 @@
-# atp-calibration
+# Calibration of the monodoman model coupled with the Rogers-McCulloch model for the ionic current: ATP impulse delivery protocol design.
 
 ## Theoretical framework:
 The framework for this project is the following: the normal diffusion of the potential in the heart is hindered by a [re-entry](https://www.youtube.com/watch?v=yLI4yj1TZhc) of the signal, possibly caused by scar tissue in specific areas of the heart. This problem leads to some complications, which could be fatal. In order to restore the normal diffusion of the potential through the affectted region, an Anti-Tachycardia Pacing (ATP) device is inserted: its purpose is to deliver an impulse at a specific time (from now on called *impulse time*) and with a specific duration (from now on called *impulse duration*) to avoid the re-entry. The role of the impulse is to reset the ECG and the device checks the effectiveess of the shock tracking the ECG in a certain time interval after the shock. This period is called *tracking window* and it lasts from 600 to 800 milliseconds. The impulse timing can be within 450 and 600 milliseconds and there is no bound a priori on the impulse duration.
 
 We are given 
 * three ECG signal observed for some milliseconds of three different patients;
-* a numerical solver to compute an approximation of an ECG to solve the [monodomain problem](https://en.wikipedia.org/wiki/Monodomain_model), couple with the [Rogers-McCulloch model](https://ieeexplore.ieee.org/document/310090?reload=true) for the ionic current.
+* a numerical solver to compute an approximation of an ECG to solve the [monodomain model](https://en.wikipedia.org/wiki/Monodomain_model), couple with the [Rogers-McCulloch model](https://ieeexplore.ieee.org/document/310090?reload=true) for the ionic current.
 
 ## Goals:
 We want to:
@@ -83,25 +83,9 @@ We decided to use:
 ## ECG reset:
 The following plots showcase the ability of our impulse delivery protocol to reset the ECG in the tracking widow for all three patients:
 
-| Patient 1 | Patient 2| Patient 3 |
-![annihilation_1](readme_images/) | ![annihilation_1](readme_images/) | ![annihilation_1](readme_images/) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Patient 1 | Patient 2 | Patient 3 |
+:-----------|:---------:|:----------:
+![annihilation_1](readme_images/patient_1_ATP_time_484.707_ATP_dur_2.697.png) | ![annihilation_1](readme_images/patient_2_ATP_time_501.435_ATP_dur_2.804.png) | ![annihilation_1](readme_images/patient_3_ATP_time_511.579_ATP_dur_5.038.png) 
 
 
 
