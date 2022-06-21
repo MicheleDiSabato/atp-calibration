@@ -48,8 +48,10 @@ The Bayesian Optimization algorithm is specifically designed to minimize the num
 2. To take into account also the battery duration, we decided to add to the loss function a term which is proportional to the square of the duration of the impulse, to try to be more conservative with respect to the battery consumption.
 3. The ATP device comes into play only after 450 milliseconds, therefore the ECG until the 450-th millisecond is always the same. Still, the numerical solver (which relies on an iterative procedure) needs to compute the solution from the very beginning. To avoid wasting time on simulating the first 450 milliseconds, we computed the ECG once and for all amd saved it: at each step of the Bayesian Optimization algorithm, we simply load the numerical ECG until the 450-th millisecond and go on from there using the solver. **Please look at [WARNING.md](WARNING.md) for more details.**
 ### Loss function:
-The loss function is $$ ||\hat{u}||_{L^2} + \lambda \Delta t$$
-
+We used two typed of loss function:
+1. $$ ||\hat{u}||_{L^2} + \lambda \Delta t$$
+2. $$ ||\hat{u}||_{L^2} + \lambda (\Delta t)2$$
+where $$\hat{u}$$ is the numerical ECG, $$\Delta t$$ is the ATP impulse duration and $$\lambda$$ is a term which quantifies the fact that higher values of $$\Delta t$$ should be avoided, since they undemine the device's battery.
 
 [^1]: we want to reset the ECG, therefore we are dealing with a minimization task.
 
