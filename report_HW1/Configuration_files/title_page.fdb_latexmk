@@ -1,0 +1,13 @@
+# Fdb version 3
+["pdflatex"] 1652342605 "title_page.tex" "title_page.pdf" "title_page" 1652342606
+  "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1136768653 1328 5442e22a7072966dbaf88ca900acf3f0 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
+  "/usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf" 1616443989 39972 3d6bb4d9d719e93193fa020b58adf5d4 ""
+  "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1642791118 2724742 9c396f359442b369f6c566b9a97f9ecd ""
+  "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
+  "title_page.aux" 1652342395 8 a94a2480d3289e625eea47cd1b285758 ""
+  "title_page.tex" 1652342604 1327 180176383db3a30ad51363938f4d256d ""
+  (generated)
+  "title_page.log"
+  "title_page.pdf"
