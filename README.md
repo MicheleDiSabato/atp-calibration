@@ -21,6 +21,7 @@ Before working on the ATP device, we need to tune hyperparameter ν<sub>2</sub>.
 
 **Remarks:**
 1. The ECG provided are noisy: they were first denoised using a low-pass bandpass filter called [Butterworth filter](https://en.wikipedia.org/wiki/Butterworth_filter). The results are shown in the following plots:
+
 | Patient 1 |  Patient 2 |  Patient 3 |
 :-------------------------:|:-------------------------:|:-------------------------:
 ![p1](readme_images/patient_1_noise.png)  | ![p2](readme_images/patient_2_noise.png) | ![p3](readme_images/patient_3_noise.png)
@@ -28,7 +29,8 @@ Before working on the ATP device, we need to tune hyperparameter ν<sub>2</sub>.
 2. For each iteration, the sampling of ν<sub>2</sub> is repeated until it falls within its bounds.
 3. The variance of the Gaussian from which we sample ν<sub>2</sub> decreases according to the number of iterations.
 4. We used 20 iterations: for each iteration we need to compute the solution of the monodomain problem coupled with the model for the ionic current, which is quite costly.
-5. 
+
+
 ## Calibration for t and delta_t
 relazione tra delta t e norma L2 della loss 
 
