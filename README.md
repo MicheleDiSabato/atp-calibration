@@ -64,8 +64,8 @@ We used two typed of loss function:
 [^1]: We want to reset the ECG, therefore we are dealing with a minimization task.
 
 where 
-* $u$ is the numerical ECG
-* $\Delta t$ is the ATP impulse duration
+* $u$ is the numerical ECG.
+* $\Delta t$ is the ATP impulse duration.
 * $\lambda$ is a term which quantifies the fact that higher values of $\Delta t$ should be avoided, since they undemine the device's battery.
 
 Moreove, we noticed that by restricting the bounds for $\Delta t$, we were still able to find optimal results. FOr this reason we restricted the bounds for $\Delta t$.
