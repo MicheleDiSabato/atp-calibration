@@ -75,7 +75,7 @@ We decided to use:
 1. we realized that it was not necessary to annihilate the ECG in the *whole* tracking window, hence we tried to restrict the $L^2$ norm of the ECG in a subset of the tracking window[^2].
 1. the third patient was the one which consistently resulted quindi invece che cercare un t tra 450 e 600 ne cerchiamo uno tra 509 e 513---> perche proprio questi valori? vedi il plot giallo e blu
 
-[^2] Basically this means that, being the tracking window within 600 and 800 milliseconds, with this choice the ECG was not exaclty zero from 600 milliseconds on, but from, from example, 750 milliseconds. This is still condiered an effective impulse.
+[^2]: Basically this means that, being the tracking window within 600 and 800 milliseconds, with this choice the ECG was not exaclty zero from 600 milliseconds on, but from, from example, 750 milliseconds. This is still condiered an effective impulse.
 
 
 
