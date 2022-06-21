@@ -31,13 +31,20 @@ Before working on the ATP device, we need to tune hyperparameter $\nu_2$. To do 
 
 | Patient 1 |  Patient 2 |  Patient 3 |
 :-------------------------:|:-------------------------:|:-------------------------:
-![p1](readme_images/patient_1_noise.png)  | ![p2](readme_images/patient_2_noise.png) | ![p3](readme_images/patient_3_noise.png)
+![p1](readme_images/Patient1.png)  | ![p2](readme_images/Patient2.png) | ![p3](readme_images/Patient3.png)
 
 2. For each iteration, the sampling of ν<sub>2</sub> is repeated until it falls within its bounds.
 3. The variance of the Gaussian from which we sample ν<sub>2</sub> decreases according to the number of iterations.
 4. We used 20 iterations: for each iteration we need to compute the solution of the monodomain problem coupled with the model for the ionic current, which is quite costly.
 
 The following plot shows the results of the calibration:
+
+| Patient 1 |  Patient 2 |  Patient 3 |
+:-------------------------:|:-------------------------:|:-------------------------:
+![p1](readme_images/patient_1_noise.png)  | ![p2](readme_images/patient_2_noise.png) | ![p3](readme_images/patient_3_noise.png)
+
+In particular, this plot showcases the exploration for paramete $\nu_2$:
+
 ![nu](readme_images/nu.png)
 
 ## Calibration for (t<sup>best</sup>, Δt<sup>best</sup>)
