@@ -77,7 +77,7 @@ where
 * $\Delta t$ is the ATP impulse duration.
 * $\lambda$ is a term which quantifies the fact that higher values of $\Delta t$ should be avoided, since they undemine the device's battery.
 
-Moreove, we noticed that by restricting the bounds for $\Delta t$, we were still able to find optimal results. FOr this reason we restricted the bounds for $\Delta t$.
+Moreover, we noticed that by restricting the bounds for Δt, we were still able to find optimal results. For this reason we restricted the bounds for Δt.
 
 We decided to use:
 
@@ -85,12 +85,12 @@ We decided to use:
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 |**Loss** | $\|\|\hat{u}\|\|_{L^2(600, 800)ms}+(\Delta t)^2$ | $\|\|\hat{u}\|\|_{L^2(600, 800)ms}+(\Delta t)^2$ | $\|\|\hat{u}\|\|_{L^2(600, 800)ms}+0.001\Delta t$
 |**$\lambda$** | 1  | 1 | 0.001
-| **t bound** | (0, 2) ms  | (0, 2) ms | (0, 8) ms
+| **$\Delta t$ bounds** | (0, 2) ms  | (0, 2) ms | (0, 8) ms
 
 **Remarks:**
 1. We needed to tread carefully with parameter $\lambda$: if we penalized excessively longer impulse durations, the overall loss function was not able to reset the ECG in the tracking window. This trade-off forced us to cope with higher impulse durations, especially for patient 3.
 1. We realized that it was not necessary to annihilate the ECG in the *whole* tracking window, hence we tried to restrict the $L^2$ norm of the ECG in a subset of the tracking window[^2].
-1. The calibration for the third patient was the one which consistently resulted in higher values for $\Delta t$, therefore we decided to focus on finding better values for the impulse duration, rather than exploring the space of possible impusle timings. We therefore restricted the bounds for the impulse timing of patient 3 from (450, 600)ms to (509, 513)ms. The choice for these values was motivated by the following plot:
+1. The calibration for the third patient was the one which consistently resulted in higher values for $\Delta t$, therefore we decided to focus on finding better values for the impulse duration, rather than exploring the space of possible impusle timings. We therefore set lambda equal to one and restricted the bounds for the impulse timing of patient 3 from (450, 600) ms to (509, 513) ms. The choice for these values was motivated by the following plot:
 
 ![sample_visualization](readme_images/patient_3_attempts.png)
 
