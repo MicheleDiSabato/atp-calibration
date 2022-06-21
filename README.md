@@ -39,8 +39,14 @@ To avoid wasting time in useless evaluations, we relied on [Bayesian Otimization
 pip install bayesian-optimization
 ```
 
+The Bayesian Optimization algorithm is specifically designed to minimize the number of evaluations of the objective function, which in our case is the L2 norm of the ECG signal of each patient in the tracking window (600, 800) milliseconds. This approach is particularly useful when the objective function is expensive to be evaluated, as in our case.
 
+**Remarks:**
+1. Bayesian Optimization is implemented to solve a **maximization** problem, so to use this library for our purposes[^1], we used the opposite of the L2 norm of the numerical ECG, hence the "minus" sign in the objective function.
+2. to take into account also the battery duration, we decided to add to the loss function a term which is proportional to the square of the duration of the impulse, to try to be more conservative with respect to the battery consumption.
+3. the ATP device comes into play only after 450 milliseconds, therefore the ECG until the 450-th millisecond is always the same. Still, the numerical solver (which relies on an iterative procedure) needs to compute the solution from the very beginning. To avoid wasting time on simulating the first 450 milliseconds, we computed the ECG once and for all amd saved it: at each step of the Bayesian Optimization algorithm, we simply load the numerical ECG until the 450-th millisecond and go on from there using the solver. **Please look at [WARNING.md](WARNING.md) for more details.**
 
+[^1]: we want to reset the ECG, therefore we are dealing with a minimization task.
 
 
 
