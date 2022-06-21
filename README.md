@@ -80,9 +80,11 @@ We decided to use:
 
 [^2]: Basically this means that, being the tracking window within 600 and 800 milliseconds, with this choice the ECG was not exaclty zero from 600 milliseconds on, but from, from example, 750 milliseconds. This is still condiered an effective impulse.
 
+## ECG reset:
+The following plots showcase the ability of our impulse delivery protocol to reset the ECG in the tracking widow for all three patients:
 
-
-
+| Patient 1 | Patient 2| Patient 3 |
+![annihilation_1](readme_images/) | ![annihilation_1](readme_images/) | ![annihilation_1](readme_images/) 
 
 
 
