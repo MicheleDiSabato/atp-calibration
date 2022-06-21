@@ -1,5 +1,7 @@
 # Calibration of the monodomain model coupled with the Rogers-McCulloch model for the ionic current: ATP impulse delivery protocol design.
 
+**Before running the code contained in this repository, please have a look at [WARNING.md](WARNING.md).**
+
 ## Theoretical framework:
 The framework for this project is the following: the normal diffusion of the potential in the heart is hindered by a [re-entry](https://www.youtube.com/watch?v=yLI4yj1TZhc) of the signal, possibly caused by scar tissue in specific areas of the heart. This problem leads to some complications, which could be fatal. In order to restore the normal diffusion of the potential through the affectted region, an Anti-Tachycardia Pacing (ATP) device is inserted: its purpose is to deliver an impulse at a specific time (from now on called *impulse time*) and with a specific duration (from now on called *impulse duration*) to avoid the re-entry. The role of the impulse is to reset the ECG and the device checks the effectiveess of the shock tracking the ECG in a certain time interval after the shock. This period is called *tracking window* and it lasts from 600 to 800 milliseconds. The impulse timing can be within 450 and 600 milliseconds and there is no bound a priori on the impulse duration.
 
