@@ -35,11 +35,11 @@ To do so we used a modifed version of a naive random search algorthm, which we c
 :-------------------------:|:-------------------------:|:-------------------------:
 ![p1](readme_images/Patient1.png)  | ![p2](readme_images/Patient2.png) | ![p3](readme_images/Patient3.png)
 
-2. For each iteration, the sampling of ν<sub>2</sub> is repeated until it falls within its bounds.
-3. The variance of the Gaussian from which we sample ν<sub>2</sub> decreases according to the number of iterations.
+2. For each iteration, the sampling of $\nu_2$ is repeated until it falls within its bounds.
+3. The variance of the Gaussian from which we sample $\nu_2$ decreases according to the number of iterations.
 4. We used 20 iterations: for each iteration we need to compute the solution of the monodomain problem coupled with the model for the ionic current, which is quite costly.
 
-The following plot shows the results of the calibration:
+The following plots show the results of the calibration:
 
 | Patient 1 |  Patient 2 |  Patient 3 |
 :-------------------------:|:-------------------------:|:-------------------------:
@@ -50,7 +50,7 @@ In particular, this plot showcases the exploration for paramete $\nu_2$:
 ![nu](readme_images/nu.png)
 
 ## Calibration for (t<sup>best</sup>, Δt<sup>best</sup>)
-Calibrating t<sup></sup> and Δt<sup></sup> using [grid search](https://towardsdatascience.com/grid-search-for-model-tuning-3319b259367e) or even our own version of a Naive Random Search (which hwe called Adaptive Random Search) is too costly, since for each possible couple (t<sup></sup>, Δt<sup></sup>) we would need to solve the monodomain problem for each patient. 
+Calibrating t<sup></sup> and Δt<sup></sup> using [grid search](https://towardsdatascience.com/grid-search-for-model-tuning-3319b259367e) or even our own version of a Naive Random Search (which we called *Adaptive Random Search*) is too costly, since for each possible couple (t<sup></sup>, Δt<sup></sup>) we would need to solve the monodomain problem for each patient. 
 
 To avoid wasting time in useless evaluations, we relied on [Bayesian Otimization](https://arxiv.org/abs/1807.02811), in particular on [this](https://github.com/fmfn/BayesianOptimization) opensource python library, which needs to be installed to run the code contained in this repository:
 
@@ -63,7 +63,7 @@ The Bayesian Optimization algorithm is specifically designed to minimize the num
 **Remarks:**
 1. Bayesian Optimization is implemented to solve a **maximization** problem, so to use this library for our purposes[^1], we used the opposite of the L2 norm of the numerical ECG, hence the "minus" sign in the objective function.
 2. To take into account also the battery duration, we decided to add to the loss function a term which is proportional to the square of the duration of the impulse, to try to be more conservative with respect to the battery consumption.
-3. The ATP device comes into play only after 450 milliseconds, therefore the ECG until the 450-th millisecond is always the same. Still, the numerical solver (which relies on an iterative procedure) needs to compute the solution from the very beginning. To avoid wasting time on simulating the first 450 milliseconds, we computed the ECG once and for all amd saved it: at each step of the Bayesian Optimization algorithm, we simply load the numerical ECG until the 450-th millisecond and go on from there using the solver. **Please look at [WARNING.md](WARNING.md) for more details.**
+3. The ATP device comes into play only after 450 milliseconds, therefore the ECG until the 450-th millisecond is always the same. Still, the numerical solver (which relies on an iterative procedure) needs to compute the solution from the very beginning. To avoid wasting time on simulating the first 450 milliseconds, we computed the ECG once and for all and saved it: at each step of the Bayesian Optimization algorithm, we simply load the numerical ECG until the 450-th millisecond and go on from there using the solver. **Please look at [WARNING.md](WARNING.md) for more details.**
 
 ### Loss function:
 We used two typed of loss function:
