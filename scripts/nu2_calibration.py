@@ -105,7 +105,7 @@ for ind_s in range(3):
         # new sample:
         if it < 10:
             while flag:
-                nu_2_guess = nu_2_est + 0.0004 * (-1 + 2 * np.random.normal(0,1, size=1))
+                nu_2_guess = nu_2_est + 0.0004 * np.random.normal(0,1, size=1)
                 if nu_2_guess < 0.0116 or nu_2_guess > 0.0124:
                     flag = True
                 else:
@@ -113,7 +113,7 @@ for ind_s in range(3):
         else:
             # decreasing variance of the uniform random variable
             while flag:
-                nu_2_guess = nu_2_est + 0.0004 * (-1 + 2 * np.random.normal(0,1, size=1)) * (it_max - it)/(it_max - 10)
+                nu_2_guess = nu_2_est + 0.0004 * np.random.normal(0,1, size=1) * (it_max - it)/(it_max - 10)
                 if nu_2_guess < 0.0116 or nu_2_guess > 0.0124:
                     flag = True
                 else:
